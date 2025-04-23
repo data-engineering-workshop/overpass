@@ -1,14 +1,14 @@
 // specify attributes we want in the export
 [out:csv('name',::lat,::lon;true;',')];
 
-// search for Saint Louis with a specific wikidata id
+// search for Washington with a specific wikidata id
 // avoiding places with the same name
 area
-  ["wikidata"="Q38022"]
-  ["name"="Saint Louis"]->.a;
+  ["wikidata"="Q61"]
+  ["name"="Washington"]->.a;
 
 // filter nodes, ways and relations by attribute and area
-nwr["leisure"="park"][name](area.a);
+nwr["amenity"="hospital"][name](area.a);
 
 // calculate centroid of ways and relations
 out body center;
